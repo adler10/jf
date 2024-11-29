@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+		<html lang="de">
+		
+<head>
+			
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="stylesheet.css">
+	<title>Jugendfeuerwehr Li-Ho</title>
+	<link rel="icon" type="image/png" href="img\andy.png">
+	
+</head>
+		
+<body>
+	
+	<div class="centered-text">
+		<div><h1>JUGENDFEUERWEHR<br> LINKENHEIM-HOCHSTETTEN</h1></div>
+		<div><h2>DA BRENNT DIE HÜTTE</h2></div>
+	</div>
+
+		
+    <div class="scroll-container">
+	
+		<div class="button-cont" id="targetDiv">
+		
+		<a href="#mitmachen" class="link">MITMACHEN</a>
+		<a href="aktionen" class="link">AKTIONEN</a>
+		<a href="" class="link">ÜBER UNS</a>
+		<a href="" class="link">KONTAKT</a>
+			
+		</div>
+		
+		<div class="redline"> </div>
+		
+		<button onclick="scrollToDiv()" id="myBtn">START</button>
+		
+		
+		<div class="grid-container">
+		
+		<div class="item1"><!--TOP1-->  
+		<div class="content" >
+			<h2 id="mitmachen"><b>MITMACHEN</b></h2>
+			<p><b>Du hast Lust auf spannende Erlebnisse, Teamarbeit und möchtest dich für deine Gemeinde engagieren? Dann bist du bei der Jugendfeuerwehr Linkenheim-Hochstetten genau richtig!</b></p>
+			<br>
+			<h3><b>Wer kann mitmachen?</b></h3>
+			<p>Alle Jugendlichen im Alter von 10 bis 17 Jahren sind herzlich eingeladen, Teil unserer Jugendfeuerwehr zu werden. Egal, ob du bereits Erfahrungen hast oder einfach nur neugierig bist – <i>bei uns ist jeder willkommen!</i></p>
+			<h3><b>Was erwartet dich?</b></h3>
+			<p>Bei der Jugendfeuerwehr erlebst du eine abwechslungsreiche Mischung aus Feuerwehrtechnik, Erste Hilfe, Sport und Spiel. Du lernst den Umgang mit Feuerwehrgeräten, nimmst an Übungen und Wettkämpfen teil und erfährst, wie wichtig Teamarbeit und Zusammenhalt sind. Außerdem gibt es spannende Ausflüge und gemeinsame Aktivitäten, bei denen der Spaß nicht zu kurz kommt.</p>
+			<h3><b>Wie kannst du dich anmelden?</b></h3>
+			<p>Ganz einfach! Komm zu einem unserer Übungsabende und schau dir an, was wir machen. Unsere Übungsabende finden jeden <i>Mittwoch um 18 Uhr im Feuerwehrhaus Linkenheim-Hochstetten</i> statt. Du kannst gerne zusammen mit deinen Eltern kommen, und dann klären wir alles zusammen. Sei einfach 10 Minuten vor Beginn des Übungsabends da!</p>
+			<p><i>Während der Schulferien und an Feiertagen findet keine Jugendfeuerwehr statt!</i></p>
+			<br>
+			<p>Wie du uns kontaktieren kannst, erfährst du <a href="kontakt.html">hier!</a>
+		</div>
+		</div>
+		
+		<div class="item2"><!--LEFT--></div>
+		
+		<div class="item3"><!--TOP2--></div>
+		
+		<div class="item4"><!--RIGHT--></div>
+		
+		<div class="item5"><!--TOP3--></div>
+		
+		</div>
+
+	</div>
+	
+	<footer id="footer">
+        <div class="link-f">
+			<p></p>
+            <p><a href="https://www.instagram.com/jf_liho/" target="_blank" class="link-f">Instagram</a></p>
+            <p><a href="https://www.facebook.com/jfliho" target="_blank" class="link-f">Facebook</a></p>
+        </div>
+        <div class="center-content">
+            <p>© 2024 Jugendfeuerwehr Linkenheim-Hochstetten. Alle Rechte vorbehalten.</p>
+        </div>
+        <div class="link-f">
+            <p><a href="impr">Impressum</a></p>
+            <p><a href="daten">Datenschutzerklärung</a></p>
+			<p></p>
+        </div>
+    </footer>
+
+    <script>
+		 // Liste der Hintergrundbilder
+        const images = [
+            'img/mlf.JPEG',
+			'img/mlf-lf.JPEG',
+			'img/dlk.JPEG'
+        ];
+
+        // Zufälliges Bild auswählen
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        // Hintergrundbild und Gradient setzen
+        document.querySelector('.centered-text').style.backgroundImage = `linear-gradient(to bottom, rgba(42,42,43,0), rgba(42,42,43,1)), url(${randomImage})`;
+        window.addEventListener('scroll', function() {
+            const text = document.querySelector('.centered-text h1');
+            text.style.opacity = 0.9 - window.scrollY / window.innerHeight;
+        });
+		
+		window.addEventListener('scroll', function() {
+            const text = document.querySelector('.centered-text h2');
+            text.style.opacity = 0.9 - window.scrollY / window.innerHeight;
+        });
+		
+		document.addEventListener("DOMContentLoaded", function() {
+		// Button-Element abrufen
+		let mybutton = document.getElementById("myBtn");
+		let targetDiv = document.getElementById("targetDiv");
+		let footer = document.getElementById("footer");
+
+		// Funktion, die beim Scrollen ausgeführt wird
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+			let footerTop = footer.getBoundingClientRect().top;
+			let windowHeight = window.innerHeight;
+
+			if (document.body.scrollTop > windowHeight * 1.1 || document.documentElement.scrollTop > windowHeight * 1.1) {
+				mybutton.classList.add("show");
+				mybutton.classList.remove("hide");
+			} else {
+				mybutton.classList.add("hide");
+				mybutton.classList.remove("show");
+			}
+
+			if (footerTop < windowHeight) {
+				mybutton.style.bottom = (windowHeight - footerTop + 20) + "px";
+			} else {
+				mybutton.style.bottom = "20px";
+			}
+		}
+
+		// Funktion, die beim Klicken auf den Button ausgeführt wird
+		function scrollToDiv() {
+			targetDiv.scrollIntoView({behavior: "smooth"});
+		}
+
+		// Button-Klick-Funktion zuweisen
+		mybutton.onclick = scrollToDiv;
+});
+
+    </script>
+	
+</body>
+		
+		</html>

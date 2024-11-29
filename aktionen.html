@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">		
+<head>
+			
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style_aktionen.css">
+	<title>Aktionen</title>
+	<link rel="icon" type="image/png" href="img\andy.png">
+	
+</head>
+<body>
+		<div class="scroll-container">
+		<div class="button-cont" id="targetDiv">
+		
+		<a href="index.html #mitmachen" class="link">MITMACHEN</a>
+		<a href="" class="link">AKTIONEN</a>
+		<a href="" class="link">ÜBER UNS</a>
+		<a href="" class="link">KONTAKT</a>
+		
+		</div>
+		
+		<div class="redline"> </div>
+		
+		<button onclick="scrollToDiv()" id="myBtn">START</button>
+		<div class="parallax"></div>
+<div class="overlay"></div>
+
+<div class="timeline">
+	<div class="red-year"><h2>2025</h2></div>
+    <div class="container left">
+        <div class="content">
+            <h2>08. Januar 2025</h2>
+            <p><strong>Jahreshauptversammlung</strong></p>
+			<br>
+            <p><strong>Ort:</strong> Feuerwehrhaus Linkenheim-Hochstetten</p>
+            <p><strong>Details:</strong> Wahlen der Gruppensprecher, Schriftführer und der Getränkewarte.</p>
+        </div>
+    </div>
+    <div class="container right">
+        <div class="content">
+            <h2>18.-22.06.2025</h2>
+            <p><strong>Kreiszeltlager</strong></p>
+			<br>
+            <p><strong>Ort:</strong> Ettlingen</p>
+            <p><strong>Details:</strong> Kreiszeltlager der Jugendfeuerwehr Landkreis Karlsruhe</p>
+			<br>
+			<p> Weitere Infos finden sie <a href="" target="_blank">hier</a></p>
+        </div>
+    </div>
+</div>
+		</div>
+
+	
+	<footer id="footer">
+        <div class="link-f">
+			<p></p>
+            <p><a href="https://www.instagram.com/jf_liho/" target="_blank" class="link-f">Instagram</a></p>
+            <p><a href="https://www.facebook.com/jfliho" target="_blank" class="link-f">Facebook</a></p>
+        </div>
+        <div class="center-content">
+            <p>© 2024 Jugendfeuerwehr Linkenheim-Hochstetten. Alle Rechte vorbehalten.</p>
+        </div>
+        <div class="link-f">
+            <p><a href="impr">Impressum</a></p>
+            <p><a href="daten">Datenschutzerklärung</a></p>
+			<p></p>
+        </div>
+    </footer>
+	
+	<script>
+	
+			document.addEventListener("DOMContentLoaded", function() {
+		// Button-Element abrufen
+		let mybutton = document.getElementById("myBtn");
+		let targetDiv = document.getElementById("targetDiv");
+		let footer = document.getElementById("footer");
+
+		// Funktion, die beim Scrollen ausgeführt wird
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+			let footerTop = footer.getBoundingClientRect().top;
+			let windowHeight = window.innerHeight;
+
+			if (document.body.scrollTop > windowHeight * 0.3 || document.documentElement.scrollTop > windowHeight * 0.3) {
+				mybutton.classList.add("show");
+				mybutton.classList.remove("hide");
+			} else {
+				mybutton.classList.add("hide");
+				mybutton.classList.remove("show");
+			}
+
+			if (footerTop < windowHeight) {
+				mybutton.style.bottom = (windowHeight - footerTop + 20) + "px";
+			} else {
+				mybutton.style.bottom = "20px";
+			}
+		}
+
+		// Funktion, die beim Klicken auf den Button ausgeführt wird
+		function scrollToDiv() {
+			targetDiv.scrollIntoView({behavior: "smooth"});
+		}
+
+		// Button-Klick-Funktion zuweisen
+		mybutton.onclick = scrollToDiv;
+});
+
+    </script>
+	
+</body>
